@@ -42,7 +42,10 @@ jobs:
         with:
           name: build-output
       - name: Test
-        run: dotnet test G3.AspNetCore.Aws.Tests/bin/Release/net10.0/G3.AspNetCore.Aws.Tests.dll --verbosity normal
+        run: |
+          dotnet test G3.AspNetCore.Aws.Tests/bin/Release/net8.0/G3.AspNetCore.Aws.Tests.dll --verbosity normal
+          dotnet test G3.AspNetCore.Aws.Tests/bin/Release/net9.0/G3.AspNetCore.Aws.Tests.dll --verbosity normal
+          dotnet test G3.AspNetCore.Aws.Tests/bin/Release/net10.0/G3.AspNetCore.Aws.Tests.dll --verbosity normal
 
   nuget:
     needs: test

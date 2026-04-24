@@ -103,7 +103,6 @@ public static class NpgsqlAwsExtensions
         builder.ConnectionStringBuilder.CommandTimeout = 30;
         builder.ConnectionStringBuilder.KeepAlive = 30;
         builder.ConnectionStringBuilder.SslMode = SslMode.Require;
-        builder.ConnectionStringBuilder.TrustServerCertificate = true;
         builder.ConnectionStringBuilder.IncludeErrorDetail = true;
 
         var secretArn = options.SecretArn;
