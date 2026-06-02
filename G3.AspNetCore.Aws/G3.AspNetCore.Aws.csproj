@@ -6,7 +6,7 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
     <PackageId>G3Software.Net.AspNetCore.Aws</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>G3Software</Authors>
     <Company>G3Software</Company>
     <Title>AWS extensions for ASP.NET Core</Title>
@@ -27,14 +27,14 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="AWSSDK.CognitoIdentityProvider" Version="4.0.6.3" />
-    <PackageReference Include="AWSSDK.S3" Version="4.0.19.1" />
-    <PackageReference Include="AWSSDK.SecretsManager" Version="4.0.4.10" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.22" Condition="'$(TargetFramework)' == 'net8.0'" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.10" Condition="'$(TargetFramework)' == 'net9.0'" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.6" Condition="'$(TargetFramework)' == 'net10.0'" />
-    <PackageReference Include="Npgsql" Version="10.0.2" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.17.0" />
+    <PackageReference Include="AWSSDK.CognitoIdentityProvider" Version="4.0.9" />
+    <PackageReference Include="AWSSDK.S3" Version="4.0.23.6" />
+    <PackageReference Include="AWSSDK.SecretsManager" Version="4.0.4.25" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.27" Condition="'$(TargetFramework)' == 'net8.0'" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.16" Condition="'$(TargetFramework)' == 'net9.0'" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.8" Condition="'$(TargetFramework)' == 'net10.0'" />
+    <PackageReference Include="Npgsql" Version="10.0.3" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.18.0" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\LICENSE">
