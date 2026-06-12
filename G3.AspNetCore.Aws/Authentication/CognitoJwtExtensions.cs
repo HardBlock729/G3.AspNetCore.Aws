@@ -15,18 +15,26 @@ public static class CognitoJwtExtensions
 {
     /// <summary>
     /// Adds JWT Bearer authentication configured for AWS Cognito.
-    /// Reads COGNITO_USER_POOL_ID and AWS_REGION environment variables.
+    /// Reads from IConfiguration (Cognito:UserPoolId, Cognito:Region) with fallback to
+    /// COGNITO_USER_POOL_ID and AWS_REGION environment variables.
     /// Fetches JWKS from the Cognito hosted endpoint and caches it for the application lifetime.
     /// </summary>
     public static WebApplicationBuilder AddG3CognitoJwtAuth(
         this WebApplicationBuilder builder,
         Action<CognitoAuthorizationOptions>? configureAuthorization = null)
     {
-        var userPoolId = Environment.GetEnvironmentVariable("COGNITO_USER_POOL_ID")
-            ?? throw new InvalidOperationException(
-                "COGNITO_USER_POOL_ID environment variable is required.");
+        var config = builder.Configuration;
 
-        var region = Environment.GetEnvironmentVariable("AWS_REGION") ?? "us-east-1";
+        var userPoolId =
+            config["Cognito:UserPoolId"]
+            ?? Environment.GetEnvironmentVariable("COGNITO_USER_POOL_ID")
+            ?? throw new InvalidOperationException(
+                "Cognito:UserPoolId (config) or COGNITO_USER_POOL_ID (env) is required.");
+
+        var region =
+            config["Cognito:Region"]
+            ?? Environment.GetEnvironmentVariable("AWS_REGION")
+            ?? "us-east-2";
         var issuer = $"https://cognito-idp.{region}.amazonaws.com/{userPoolId}";
 
         JsonWebKeySet? jwks = null;
